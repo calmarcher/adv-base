@@ -1,0 +1,20 @@
+<% add=@addition.client%>
+<% name= add.name %>
+<h1> <%= @name %> </h1>
+<%= form_for @addition, :url => { :action => "update" }, :html => {:class => "nifty_form"} do |f| %>
+
+
+
+	<p><%= f.text_field :cont%> :phone</br></p>
+
+	<p><%= f.text_field :contname %> :man</br></p>
+	<p><%= f.text_field :email %> :email</br></p>
+
+
+<p><%= f.submit "Редактировать данные" %></p>
+
+
+<form action="/client/<%= add.id %>"><input type="submit" value="Назад"></form>
+
+<% end %>
+

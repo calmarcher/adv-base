@@ -1,0 +1,13 @@
+<h1> Новый заказ </h1>
+<%= form_for @magazine, :url => { :action => "create" }, :html => {:class => "nifty_form"} do |f| %>
+
+	<p><%=  select("magazine", "client_id", Client.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'None'}) %> Клиент </br></p>
+        
+        <p><%= f.text_field :price %> Цена </br></p>
+        <p><%= f.date_select :startmag %> :Срок выполнения</br></p>
+        <p><%= f.date_select :stopmag %> :Срок выполнения</br></p>
+
+
+
+<p><%= f.submit "Добавить заказ" %></p>
+<%end%>

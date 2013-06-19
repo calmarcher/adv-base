@@ -1,0 +1,53 @@
+<h1> Публикация </h1>
+<table>
+<tr>
+	<th width="120px">
+		id заказа
+	</th>
+	<th width="500px">
+		Клиент
+	</th>
+        <th width="100px">
+		Первый выход
+	</th>
+	<th width="140px">
+		Последний выход
+	</th>
+	<th width="80px">
+	</th>
+
+<% @magazine.each do |i| %>
+<tr>
+	<td>
+		<%= i.id %>
+	</td>
+	<td>
+		<%=  if i.client_id.nil?
+  @msg = "No client found for this order"
+      else
+		 z = i.client
+                 clie = z.name
+          end%>
+	</td>
+	<td>
+          <%= i.startmag %>
+	</td>
+        <td <% @s= i.stopmag - Date.today %>
+<%= if @s < 14
+render text: 'bgcolor="#CC3333"'
+ else
+render text: 'bgcolor="#FF00FF"'
+end%>
+>
+		<%= i.stopmag %>
+	</td>
+	<td>
+		<%= link_to "Delete", order_path(i), method: :delete, data: {confirm: "Вы уверены?" }%>
+	</td>
+</tr>
+
+
+<%end%>
+</table>
+<form action="/magazine/new"><input type="submit" name="Новый заказ" value="Новый заказ"></form>
+

@@ -1,0 +1,13 @@
+<h1>Новый пользователь</h1>
+
+<%= form_for @user, :url => { :action => "create" }, :html => {:class => "nifty_form"} do |f| %>
+
+<p><%= f.text_field :login %> Логин</br></p>
+	<p><%= f.password_field :pass %> Пароль</br></p>
+	
+
+<p><%= f.submit "Добавить пользователя" %></p>
+
+
+
+<% end %>

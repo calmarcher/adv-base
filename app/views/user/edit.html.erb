@@ -1,0 +1,13 @@
+<h1>Edit user</h1>	
+
+<%= form_for @user, :url => { :action => "update" }, :html => {:class => "nifty_form"} do |f| %>
+
+	<p><%= f.text_field :login %> Логин</br></p>
+	<p><%= f.text_field :pass %> Пароль</br></p>
+	<p><%= f.text_field :status %> Статус</br></p>
+
+<p><%= f.submit "Редактировать данные" %></p>
+
+<form action="/user"><input type="submit" value="Назад"></form>
+
+<% end %>

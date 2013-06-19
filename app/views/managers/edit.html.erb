@@ -1,0 +1,12 @@
+<h1>Редактирование заказа</h1>
+
+<%= form_for @manager, :url => { :action => "update" }, :html => {:class => "nifty_form"} do |f| %>
+
+	<p><%=  select("manager", "client_id", Client.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'None'}) %> Клиент </br></p>
+        <p><%=  select("manager", "user_id", User.all.collect {|t| [ t.login, t.id ] }, {:include_blank => 'None'}) %> Менеджер </br></p>
+      
+
+
+
+<p><%= f.submit "Редактировать заказ" %></p>
+<%end%>

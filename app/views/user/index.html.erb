@@ -1,0 +1,44 @@
+<h1>Пользователи</h1>
+<table>
+<tr>
+	<th width="120px">
+		id пользователя
+	</th>
+	<th width="600px">
+		Логин
+	</th>
+	<th width="140px">
+		Статус
+	</th>
+	<th width="80px">
+	</th>
+
+<% @user.each do |i| %>
+<tr>
+	<td>
+		<%= i.id %>
+	</td>
+	<td>
+		<%= link_to i.login, user_path(i) %>
+	</td>
+	<td>
+		<%= if i.status == 1
+		render text: "Администратор"
+	 		else
+				if i.status == 2
+					render text: "Начальник"
+				else
+					render text: "Менеджер"
+				end	
+			end %>
+	</td>
+	<td>
+		<%= link_to "Delete", user_path(i), method: :delete, data: {confirm: "Вы уверены?" }%>
+	</td>
+</tr>
+
+
+<%end%>
+</table>
+<form action="/user/new"><input type="submit" value="Новый пользователь"></form>
+<form action="/client"><input type="submit" value="Клиенты"></form>

@@ -1,0 +1,53 @@
+<h1> Заказы </h1>
+<table>
+<tr>
+	<th width="120px">
+		id заказа
+	</th>
+	<th width="500px">
+		Название
+	</th>
+        <th width="100px">
+		Клиент
+	</th>
+	<th width="140px">
+		Dead line
+	</th>
+	<th width="80px">
+	</th>
+
+<% @order.each do |i| %>
+<tr>
+	<td>
+		<%= i.id %>
+	</td>
+	<td>
+		<%= link_to i.order, order_path(i) %>
+	</td>
+	<td>    <%=  if i.client_id.nil?
+  @msg = "No client found for this order"
+      else
+		 z = i.client 
+                 clie = z.name
+          end%>
+	</td>
+        <td <% @s= i.stoporder - Date.today %>
+<%= if @s < 7
+render text: 'bgcolor="#CC3333"'
+ else
+render text: 'bgcolor="#FF00FF"'
+end%>
+>
+		<%= i.stoporder %>
+          <%=  %>
+	</td>
+	<td>
+		<%= link_to "Delete", order_path(i), method: :delete, data: {confirm: "Вы уверены?" }%>
+	</td>
+</tr>
+
+
+<%end%>
+</table>
+<form action="/order/new"><input type="submit" name="Новый заказ" value="Новый заказ"></form>
+

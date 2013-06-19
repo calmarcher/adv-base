@@ -1,0 +1,14 @@
+<h1>Клиент №<%= @client.id %></h1>
+
+
+
+<ul>
+	<li><h3>название</h3><%= @client.name %></li>
+	<li><h3>добавлен</h3><%= @client.coming %></li>
+	<li><h3>адрес</h3><%= @client.address %></li>
+	<li><h3>комментарий</h3><%= @client.comments %></li>
+        
+</ul>
+
+<form action="/client/<%= @client.id %>/edit"><input type="submit" value="Редактировать"></form>
+<form action="/client"><input type="submit" value="All Clients"></form>

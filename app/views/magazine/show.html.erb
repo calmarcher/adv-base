@@ -1,0 +1,11 @@
+<h1> заказ № <%= @magazine.id %> </h1>
+
+<ul>
+	<li><h3>Клиент</h3><%= @msg %></li>
+        
+	<li><h3>Стоимость</h3><%= @magazine.price %></li>
+	<li><h3>Дата первого выпуска</h3><%= @magazine.startmag %></li>
+	<li><h3>Дата последнего выпуска</h3><%= @magazine.stopmag %></li>
+</ul>
+<form action="/magazine/<%= @magazine.id %>/edit"><input type="submit" value="Редактировать"></form>
+<form action="/magazine"><input type="submit" value="Заказы"></form>

@@ -1,0 +1,47 @@
+<h1>Клиенты</h1>
+<table>
+<tr>
+	<th width="120px">
+		id клиента
+	</th>
+	<th width="400px">
+		Название
+	</th>
+	<th width="200px">
+                Менеджер
+        </th>
+        <th width="140px">
+		Дата создания
+	</th>
+	<th width="80px">
+	</th>
+
+<% @client.each do |i| %>
+<tr>
+	<td>
+		<%= i.id %>
+	</td>
+	<td>
+		<%= link_to i.name, client_path(i) %>
+	</td>
+        <td>
+                <%=
+                if i.user.nil?
+                  render text: "has no manager"
+                else
+                  @us = i.user
+                  @user = @us.login
+                end%>
+        </td>
+        <td>
+		<%= i.coming %>
+	</td>
+	<td>
+		<%= link_to "Delete", client_path(i), method: :delete, data: {confirm: "Вы уверены?" }%>
+	</td>
+</tr>
+
+
+<%end%>
+</table>
+<form action="/client/new"><input type="submit" name="Новый клиент" value="Новый клиент"></form>

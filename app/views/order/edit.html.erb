@@ -1,0 +1,13 @@
+<h1>Редактирование заказа</h1>
+
+<%= form_for @order, :url => { :action => "update" }, :html => {:class => "nifty_form"} do |f| %>
+
+	<p><%=  select("order", "client_id", Client.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'None'}) %> Клиент </br></p>
+        <p><%= f.text_field :order %> Заказ </br></p>
+        <p><%= f.text_field :price %> Цена </br></p>
+        <p><%= f.date_select :stoporder %> :Срок выполнения</br></p>
+
+
+
+<p><%= f.submit "Редактировать заказ" %></p>
+<%end%>

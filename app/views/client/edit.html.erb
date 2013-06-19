@@ -1,0 +1,16 @@
+<h1>Edit client</h1>	
+
+<%= form_for @client, :url => { :action => "update" }, :html => {:class => "nifty_form"} do |f| %>
+
+	<p><%= @client.name%> :название предприятия</br></p>
+	
+	<p><%= @client.address %> :адрес</br></p>
+	<p><%= f.text_field :comments %> :Комментарии</br></p>
+	<p><%= @client.coming %> :Добавлен</br></p>
+       
+<p><%= f.submit "Редактировать данные" %></p>
+
+
+<form action="/client"><input type="submit" value="Назад"></form>
+
+<% end %>

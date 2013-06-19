@@ -1,0 +1,9 @@
+<h1> Привязка № <%= @manager.id %> </h1>
+
+<ul>
+	<li><h3>Клиент</h3><%= @client %></li>
+        <li><h3>Менеджер</h3><%= @user %></li>
+	
+</ul>
+<form action="/managers/<%= @manager.id %>/edit"><input type="submit" value="Редактировать"></form>
+<form action="/managers"><input type="submit" value="Заказы"></form>

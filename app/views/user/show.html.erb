@@ -1,0 +1,21 @@
+<h1>Пользователь №<%= @user.id %></h1>
+
+
+
+<ul>
+	<li><h3>Логин</h3><%= @user.login %></li>
+	<li><h3>Пароль</h3><%= @user.pass %></li>
+	<li><%= @user.status %></li>	
+	<li><h3><%= if @user.status == 1
+		render text: "Администратор"
+	 		else
+				if @user.status == 2
+					render text: "Начальник"
+				else
+					render text: "Менеджер"
+				end	
+			end %>
+		
+</ul>
+<form action="/user/<%= @user.id %>/edit"><input type="submit" value="Редактировать"></form>
+<form action="/user"><input type="submit" value="Пользователи"></form>

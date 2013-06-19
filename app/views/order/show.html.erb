@@ -1,0 +1,11 @@
+<h1> заказ № <%= @order.id %> </h1>
+
+<ul>
+	<li><h3>Клиент</h3><%= @msg %></li>
+        <li><h3>Заказ</h3><%= @order.order %></li>
+	<li><h3>Стоимость</h3><%= @order.price %></li>
+	<li><h3>Дата получения заказа</h3><%= @order.startorder %></li>
+	<li><h3>Дата сдачи заказа</h3><%= @order.stoporder %></li>
+</ul>
+<form action="/order/<%= @order.id %>/edit"><input type="submit" value="Редактировать"></form>
+<form action="/order"><input type="submit" value="Заказы"></form>

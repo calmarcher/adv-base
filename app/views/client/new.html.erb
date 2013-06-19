@@ -1,0 +1,16 @@
+<h1>Add new client</h1>
+
+<%= form_for @client, :url => { :action => "create" }, :html => {:class => "nifty_form"} do |f| %>
+
+	<p><%= f.text_field :name %> :название предприятия</br></p>
+	<p><%= f.date_select :coming %> :дата добавления</br></p>
+	<p><%= f.text_field :address %> :адрес</br></p>
+	<p><%= f.text_field :comments %> :комментарии</br></p>
+        
+
+<p><%= f.submit "Добавить клиента" %></p>
+
+
+
+
+<% end %>

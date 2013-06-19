@@ -1,0 +1,48 @@
+<h1> Менеджмент </h1>
+<table>
+<tr>
+	<th width="120px">
+		id заказа
+	</th>
+	<th width="500px">
+		Клиент
+	</th>
+        
+	<th width="240px">
+		Менеджер
+	</th>
+	<th width="80px">
+	</th>
+
+<% @manager.each do |i| %>
+<tr>
+	<td>
+		<%= i.id %>
+	</td>
+	
+	<td>    <%=  if i.client_id.nil?
+  @msg = "No client found for this order"
+      else
+		 z = i.client 
+                 clie = z.name
+          end%>
+	</td>
+        <td 
+>
+		<%=  if i.user_id.nil?
+  @msg = "No user found for this order"
+      else
+		 y = i.user
+                 user = y.login
+          end%>
+	</td>
+	<td>
+		<%= link_to "Delete", manager_path(i), method: :delete, data: {confirm: "Вы уверены?" }%>
+	</td>
+</tr>
+
+
+<%end%>
+</table>
+<form action="/managers/new"><input type="submit" name="Новый заказ" value="Новая привязка"></form>
+
